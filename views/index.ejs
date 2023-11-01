@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<%- include ./partials/head %>
+
+<body>
+  <% include ./partials/navbar %>
+
+  <div class = "container">
+    <h1>Home Page</h1>
+    
+
+    <% for (let i=0; i < birdData.length; i++){ %> 
+      <p><%= birdData[i].species %> - <%=birdData[i].nickName %></p>
+    <% } %>
+  </div>
+  <% include ./partials/scripts %>
+</body>
+</html>
