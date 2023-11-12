@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partials/head %>
+
+  <body>
+    <% include ../partials/navbar %>
+
+    <div class="container">
+      <h1>Edit Data</h1>
+     
+      <form method="post" action="/Patients/update">
+        <input type="hidden" name="_id"  value="<%=birdData._id%>"/>
+
+        <input type="text" name="creatorId" placeholder="CreatorId" value="<%=birdData.creatorId%>"/>
+        <input type="text" name="creatorName" placeholder="CreatorName" value="<%=birdData.creatorName%>"/>
+        <input type="text" name="firstName" placeholder="FirstName" value="<%=birdData.firstName%>"/>
+        <input type="text" name="lastName" placeholder="LastName" value="<%=birdData.lastName%>"/>
+        <input type="text" name="birthDate" placeholder="BirthDate" value="<%=birdData.birthDate%>"/>
+        <input type="text" name="zipCode" placeholder="ZipCode" value="<%=birdData.zipCode%>"/>
+        <input type="text" name="state" placeholder="State" value="<%=birdData.state%>"/>
+        <input type="text" name="phoneNumber" placeholder="PhoneNumber" value="<%=birdData.phoneNumber%>"/>
+        <input type="text" name="createDate" placeholder="CreateDate" value="<%=birdData.createDate%>"/>
+        <input type="text" name="insuranceType" placeholder="InsuranceType" value="<%=birdData.insuranceType%>"/>
+        <input type="text" name="testType" placeholder="TestType" value="<%=birdData.testType%>"/>
+        <input type="text" name="doctorService" placeholder="DoctorService" value="<%=birdData.doctorService%>"/>
+        <input type="text" name="labName" placeholder="LabName" value="<%=birdData.labName%>"/>
+       
+        
+        
+        <select name="status">
+          <% if(birdData.status == 'Good') { %>
+            <option selected>Good</option>
+          <% } else { %>
+            <option>Good</option>
+          <% } %>
+          <% if (birdData.status == 'Critical') { %>
+            <option selected>Critical</option>
+          <% } else { %>
+            <option>Critical</option>
+          <% } %>
+          <% if (birdData.status == 'Stable') { %>
+            <option selected>Stable</option>
+          <% } else { %>
+            <option>Stable</option>
+          <% } %>
+        </select>
+
+        <!-- <select name="status">
+          <% ['Alive', 'Dead', 'Unknown'].forEach(function(status) { %>
+            <option <%= birdData.status === status ? 'selected' : '' %>> <%= status %> </option>
+          <% }); %>
+        </select> -->
+
+
+        <input type="submit" value="Save Edit"/>
+      </form>
+      
+    </div>
+    <% include ../partials/scripts %>
+  </body>
+</html>
