@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<%- include ../partials/head %>
+<head>
+  <link rel="stylesheet" href="CreatePatient.css">
+</head>
+
+<body>
+  <% include ../partials/navbar %>
+
+  <div class="container">
+    <h1>Create Patients</h1>
+
+    <form method="POST" action="/Patients/Details" class="patient-form">
+      <div class="form-group">
+        <input required type="text" name="creatorId" placeholder="CreatorId" class="form-control"/>
+        <input required type="text" name="creatorName" placeholder="CreatorName" class="form-control"/>
+        <input required type="text" name="firstName" placeholder="FirstName" class="form-control"/>
+        <input required type="text" name="lastName" placeholder="LastName" class="form-control"/>
+        <input required type="text" name="birthDate" placeholder="BirthDate" class="form-control" pattern="\d{2}/\d{2}/\d{4}" title="Please use the format DD-MM-YYYY"/>
+        <input required type="text" name="zipCode" placeholder="ZipCode" class="form-control"/>
+        <input required type="text" name="state" placeholder="State" class="form-control"/>
+        <input required type="text" name="phoneNumber" placeholder="PhoneNumber" class="form-control"/>
+        <input required type="text" name="createDate" placeholder="CreateDate" class="form-control" pattern="\d{2}/\d{2}/\d{4}" title="Please use the format DD-MM-YYYY"/>
+        <input required type="text" name="insuranceType" placeholder="InsuranceType" class="form-control"/>
+        <input required type="text" name="testType" placeholder="TestType" class="form-control"/>
+        <input required type="text" name="doctorService" placeholder="DoctorService" class="form-control"/>
+        <input required type="text" name="labName" placeholder="LabName" class="form-control"/>
+
+        
+        <select name="status" class="form-control">
+          <option>Stable</option>
+          <option>Good</option>
+          <option>Critical</option>
+        </select>
+      </div>
+
+      <input type="submit" value="Add Patient" class="btn-submit"/>
+    </form>
+
+  </div>
+  <% include ../partials/scripts %>
+</body>
+</html>

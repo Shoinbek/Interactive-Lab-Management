@@ -1,69 +1,156 @@
+
 <!DOCTYPE html>
-<html>
-  <%- include ('../partials/head') %>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Patient Data</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
 
 <body>
-  <%- include ('../partials/navbar') %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">GenoTech</a>
+    </nav>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title text-center">Edit Patient Data</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/update" class="edit-form">
+                    <input type="hidden" name="_id" value="<%=PatientsData._id%>" />
 
-  <div class="container">
-    <h1 class="text-center">Update patient</h1>
+                    <div class="form-group row">
+                        <label for="creatorId" class="col-sm-3 col-form-label">Creator ID:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="creatorId" name="creatorId"
+                                value="<%=PatientsData.creatorId%>" />
+                        </div>
+                    </div>
 
-    <form method="post" action="/patients/update" class="container mt-5">
-        <div class="row justify-content-center">
-          <div class="col-md-4">
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="creatorID" placeholder="creatorID" />
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Creator Name:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="creatorName" name="creatorName"
+                                value="<%=PatientsData.creatorName%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">First Name:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="firstName" name="firstName"
+                                value="<%=PatientsData.firstName%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Last Name:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="lastName" name="lastName"
+                                value="<%=PatientsData.lastName%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Birth Date:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="birthDate" name="birthDate"
+                                value="<%=PatientsData.birthDate%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Zip Code:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="zipCode" name="zipCode"
+                                value="<%=PatientsData.zipCode%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">State:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="state" name="state"
+                                value="<%=PatientsData.state%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Phone Number:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                                value="<%=PatientsData.phoneNumber%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Create Date:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="createDate" name="createDate"
+                                value="<%=PatientsData.createDate%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Insurance Type:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="insuranceType" name="insuranceType"
+                                value="<%=PatientsData.insuranceType%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Test Type:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="testType" name="testType"
+                                value="<%=PatientsData.testType%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Doctor Service:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="doctorService" name="doctorService"
+                                value="<%=PatientsData.doctorService%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="creatorName" class="col-sm-3 col-form-label">Lab Name:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" class="form-control" id="labName" name="labName"
+                                value="<%=PatientsData.labName%>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="status" class="col-sm-3 col-form-label">Patient Status:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="status" name="status">
+                                <option <%= PatientsData.status === 'Good' ? 'selected' : '' %>>Good</option>
+                                <option <%= PatientsData.status === 'Critical' ? 'selected' : '' %>>Critical</option>
+                                <option <%= PatientsData.status === 'Stable' ? 'selected' : '' %>>Stable</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 text-center">
+                            <button type="submit" class="btn btn-primary">Save Edit</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="creatorName" placeholder="Creator Name" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="firstName" placeholder="First Name" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="lastName" placeholder="Last Name" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="date" class="form-control" name="birthDate" placeholder="Birth date" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="zipcode" placeholder="zipcode" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="state" placeholder="state" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="phoneNumber" placeholder="phone number" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="date" class="form-control" name="createDate" placeholder="createDate" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="insuranceType" placeholder="insuranceType" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="testType" placeholder="test type" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="DoctorService" placeholder="doctor service" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="labName" placeholder="Lab Name" />
-            </div>
-            <div class="form-group mb-2">
-              <input type="text" class="form-control" name="sampleStatus" placeholder="sample status" />
-            </div>
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary" value="Add Patient" />
-            </div>
-          </div>
         </div>
-      </form>
-      
+    </div>
 
-  </div>
-  <%- include ('../partials/scripts') %>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-z9z2iiAk7Gg/duGagFtRt8OzK9tG9dpLbUwLMAZ41B0ibnpMChEdqpl3O2nJM6eB" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRD9PJjpoXF9haTc2x0L+szYg8s5v9pa4lsv5YrTv" crossorigin="anonymous"></script>
 </body>
 
 </html>

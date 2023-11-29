@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <%- include ('./partials/head') %>
+  <%- include ./partials/head %>
 
-  <body>
-    <%- include ('./partials/navbar') %>
+<body>
+  <% include ./partials/navbar %>
 
-    <div class="container">
-      <h1>Home Page</h1>
-     
-      <% if (locals.user) { %>
-        <p>Hi <%= locals.user.firstName %>!</p>
-      <% } %>
-    </div>
-    <%- include ('./partials/scripts') %>
-  </body>
+  <div class = "container">
+    <h1>Home Page</h1>
+
+    <% if(locals.user){ %>
+      <p>Hi <%= locals.user.firstName%>!</p>
+
+    <%} %>
+    
+  </div>
+  <% include ./partials/scripts %>
+</body>
 </html>

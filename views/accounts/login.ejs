@@ -1,35 +1,110 @@
 <!DOCTYPE html>
-<html>
-<%- include ('../partials/head') %>
+<html lang="en">
 
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login Page</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css">
+  <style>
+    body,
+   .gradient-custom-2 {
+    background: linear-gradient(to bottom, #075713, #0019fe) !important;
+  }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg mb-5">
     <div class="container">
-
-      <div class="col-sm-6 col-sm-offset-3">
-
-        <h1>Login</h1>
-
-        <!-- show any messages that come back with authentication -->
-        <% if (message.length> 0) { %>
-          <div class="alert alert-danger">
-            <%= message %>
-          </div>
+      <a class="navbar-brand" href="/">My Application</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Patients/Create">Create Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Patients/Details">Patient Details</a>
+          </li>
+          <% if(locals.user && locals.user.role === 'Admin') { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/users">Users</a>
+          </li>
           <% } %>
-
-            <!-- LOGIN FORM -->
-            <form action="/accounts/login" method="post">
-              <div class="form-group">
-                <label>Email</label>
-                <input required type="text" class="form-control" name="email">
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <input required type="password" class="form-control" name="password">
-              </div>
-              <button type="submit" class="btn btn-warning btn-lg">Login</button>
-            </form>
-
+        </ul>
+        <ul class="navbar-nav">
+          <% if (locals.user) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/logout">Logout</a>
+          </li>
+          <%} else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/login">Log in</a>
+          </li>
+          <% } %>
+        </ul>
       </div>
     </div>
-  </body>
+  </nav>
+
+  <section class="h-100 gradient-form">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+                  <div class="text-center">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">GenoTech Dynamics</h4>
+                  </div>
+                  <!-- LOGIN FORM -->
+                  <form action="/accounts/login" method="post">
+                    <% if (message.length > 0) { %>
+                    <div class="alert alert-danger">
+                      <%= message %>
+                    </div>
+                    <% } %>
+                    <div class="form-outline mb-4">
+                      <input type="text" class="form-control" name="email" placeholder="Email" required>
+                      <label class="form-label" for="form2Example11"></label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="password" class="form-control" name="password" placeholder="Password" required>
+                      <label class="form-label" for="form2Example22"></label>
+                    </div>
+                    <button class="btn btn-warning btn-lg" type="submit">Login</button>
+                  </form>
+                  <hr>
+                  <p>Don't have an account? <a href="/accounts/signup">Sign Up</a></p>
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">We are more than just a company</h4>
+                  <p class="small mb-0">Welcome to GenoTech Solutions, where innovation meets precision in managing genetic testing workflows. At GenoTech, we specialize in providing cutting-edge solutions for laboratories, streamlining the end-to-end process of handling patient samples and genetic test data. Our advanced Interactive Lab Management Platform (ILMP) empowers laboratories with an efficient and secure web-based system, enabling seamless sample tracking, workflow automation, and meticulous management of patient records. With a strong focus on HIPAA compliance and a commitment to excellence, GenoTech Dynamics is dedicated to revolutionizing molecular diagnostics and genetic testing management, ensuring reliability, accuracy, and efficiency in every step of the laboratory process.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
 </html>

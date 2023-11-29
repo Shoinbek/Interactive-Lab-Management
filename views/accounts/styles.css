@@ -1,0 +1,25 @@
+body,
+html {
+  height: 100%;
+}
+
+.gradient-form {
+  background-color: #eee;
+}
+
+.card {
+  border: none;
+}
+
+.form-outline {
+  position: relative;
+}
+
+.form-outline input.form-control {
+  padding-right: 3.5rem !important;
+}
+
+.card-body {
+  padding: 5rem !important;
+}
+
