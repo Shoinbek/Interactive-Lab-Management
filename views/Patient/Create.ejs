@@ -1,45 +1,153 @@
-
 <!DOCTYPE html>
-<html>
-<%- include ../partials/head %>
+<html lang="en">
+  <%- include ../partials/head %>
+
 <head>
-  <link rel="stylesheet" href="CreatePatient.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Patients</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 </head>
 
 <body>
-  <% include ../partials/navbar %>
+    <% include ../partials/navbar %>
 
-  <div class="container">
-    <h1>Create Patients</h1>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title text-center">Create Patients</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/Patients/Details" class="patient-form">
+                    <div class="form-group row">
+                        <label for="creatorId" class="col-sm-3 col-form-label">Creator ID:</label>
+                        <div class="col-sm-9">
+                            <input required type="text" name="creatorId" placeholder="CreatorId"
+                                class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="creatorName" class="col-sm-3 col-form-label">Creator Name:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="creatorName" placeholder="creatorName"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="firstName" class="col-sm-3 col-form-label">First Name:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="firstName" placeholder="firstName"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="lastName" class="col-sm-3 col-form-label">Last Name:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="lastName" placeholder="lastName"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="birthDate" class="col-sm-3 col-form-label">Birth Date:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="birthDate" placeholder="birthDate"
+                              class="form-control bootstrap-datepicker " pattern="\d{2}/\d{2}/\d{4}" title="Please use the format DD-MM-YYYY" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="zipCode" class="col-sm-3 col-form-label">Zip Code:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="zipCode" placeholder="zipCode"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="state" class="col-sm-3 col-form-label">State:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="state" placeholder="state"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="phoneNumber" class="col-sm-3 col-form-label">Phone Number:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="phoneNumber" placeholder="phoneNumber"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="createDate" class="col-sm-3 col-form-label">Creat Date:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="createDate" placeholder="createDate"
+                              class="form-control bootstrap-datepicker"pattern="\d{2}/\d{2}/\d{4}" title="Please use the format DD-MM-YYYY" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="insuranceType" class="col-sm-3 col-form-label">Insurance Type:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="insuranceType" placeholder="insuranceType"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="testType" class="col-sm-3 col-form-label">Test Type:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="testType" placeholder="testType"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="doctorService" class="col-sm-3 col-form-label">Doctor Service:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="doctorService" placeholder="doctorService"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="labName" class="col-sm-3 col-form-label">Lab Name:</label>
+                      <div class="col-sm-9">
+                          <input required type="text" name="labName" placeholder="labName"
+                              class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="status" class="col-sm-3 col-form-label">Status:</label>
+                      <div class="col-sm-9">
+                        <select class="form-control" id="status" name="status">
+                          <option>Good</option>
+                          <option>Critical</option>
+                          <option>Stable</option>
+                        </select>
+                      </div>
+                    </div>
 
-    <form method="POST" action="/Patients/Details" class="patient-form">
-      <div class="form-group">
-        <input required type="text" name="creatorId" placeholder="CreatorId" class="form-control"/>
-        <input required type="text" name="creatorName" placeholder="CreatorName" class="form-control"/>
-        <input required type="text" name="firstName" placeholder="FirstName" class="form-control"/>
-        <input required type="text" name="lastName" placeholder="LastName" class="form-control"/>
-        <input required type="text" name="birthDate" placeholder="BirthDate" class="form-control" pattern="\d{2}/\d{2}/\d{4}" title="Please use the format DD-MM-YYYY"/>
-        <input required type="text" name="zipCode" placeholder="ZipCode" class="form-control"/>
-        <input required type="text" name="state" placeholder="State" class="form-control"/>
-        <input required type="text" name="phoneNumber" placeholder="PhoneNumber" class="form-control"/>
-        <input required type="text" name="createDate" placeholder="CreateDate" class="form-control" pattern="\d{2}/\d{2}/\d{4}" title="Please use the format DD-MM-YYYY"/>
-        <input required type="text" name="insuranceType" placeholder="InsuranceType" class="form-control"/>
-        <input required type="text" name="testType" placeholder="TestType" class="form-control"/>
-        <input required type="text" name="doctorService" placeholder="DoctorService" class="form-control"/>
-        <input required type="text" name="labName" placeholder="LabName" class="form-control"/>
+                    <div class="form-group row">
+                        <div class="col-sm-12 text-center">
+                            <input type="submit" value="Add Patient" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-        
-        <select name="status" class="form-control">
-          <option>Stable</option>
-          <option>Good</option>
-          <option>Critical</option>
-        </select>
-      </div>
-
-      <input type="submit" value="Add Patient" class="btn-submit"/>
-    </form>
-
-  </div>
-  <% include ../partials/scripts %>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <% include ../partials/scripts %>
+    
+    <script>
+      $(document).ready(function() {
+        $('.datepicker').datepicker({
+          format: 'mm/dd/yyyy', 
+          autoclose: true,
+          todayHighlight: true
+        });
+      });
+      
+    </script>
 </body>
+
 </html>
