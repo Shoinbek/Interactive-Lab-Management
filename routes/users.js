@@ -30,6 +30,7 @@ router.post('/create', async function (req, res, next) {
         await newUser.save();
     } catch (err) {
         console.log(err);
+        res.render('error', {message: 'Invalid data submitted'});
     }
 
     res.redirect('/users');
