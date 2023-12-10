@@ -8,13 +8,14 @@ router.get('/Create', authMiddleware.ensureAuthenticated, function(req, res, nex
 });
 
 router.get('/csv-export',async function(req,res,next){
-  let patient = await Patients.find();
+  let patients = await Patients.find();
   let csv = 'creatorId,creatorName,firstName,lastName,birthDate,zipCode,state,phoneNumber,createDate,insuranceType,testType,doctorService,labName,Status\n ';
 
-  for(let patient of Patients){
-    csv += '${patient.creatorId},${patient.creatorName},${patient.firstName},${patient.lastName},${patient.birthDate},${patient.zipCode},${patient.state},${patient.phoneNumber},${patient.createDate},${patient.insuranceType},${patient.testType},${patient.doctorService},${patient.labName},${patient.Status}\n';
-  }
-  res.Header('Content-type', 'text/csv' );
+  patients.forEach(function(p) {
+    csv += `${p.creatorId},${p.creatorName},${p.firstName},${p.lastName},${p.birthDate},${p.zipCode},${p.state},${p.phoneNumber},${p.createDate},${p.insuranceType},${p.testType},${p.doctorService},${p.labName},${p.Status}\n`;
+  });
+
+  res.setHeader('Content-type', 'text/csv' );
   res.attachment('patients.csv');
   return res.send(csv);
 });
