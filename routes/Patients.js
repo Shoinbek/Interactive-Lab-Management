@@ -25,4 +25,9 @@ router.get('/Details', authMiddleware.ensureAuthenticated, function(req, res, ne
 });
 
 
+
+
+
+
+
 module.exports = router;
