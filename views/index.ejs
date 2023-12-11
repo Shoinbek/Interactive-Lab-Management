@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <%- include ./partials/head %>
+<html lang="en">
+
+<%- include ./partials/head %>
 
 <body>
+
   <% include ./partials/navbar %>
 
-  <div class = "container">
-    <h1>Home Page</h1>
+  <div class="container mt-5">
+    <div class="jumbotron">
+      <h1 class="display-4">GenoTech Home Page</h1>
 
-    <% if(locals.user){ %>
-      <p>Hi <%= locals.user.firstName%>!</p>
+      <% if(locals.user) { %>
+      <p class="lead">Hi <%= locals.user.firstName %>!</p>
+      <% } %>
 
-    <%} %>
-    
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-muted">Welcome to GenoTech! Our platform is a cutting-edge Laboratory Information System (LIS) designed to revolutionize the way labs handle genetic testing workflows. Whether you're a testing facility or a molecular diagnostics and genetic testing lab, ILMP is your ultimate solution for seamless and efficient sample management.</p>
+      </div>
+    </div>
   </div>
+
   <% include ./partials/scripts %>
+
 </body>
+
 </html>
 
