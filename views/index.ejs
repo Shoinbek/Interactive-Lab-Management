@@ -7,14 +7,46 @@
 
   <% include ./partials/navbar %>
 
-  <div class="container mt-5">
+  <div class="wrapper mt-5">
     <div class="jumbotron">
       <h1 class="display-4">GenoTech Home Page</h1>
 
       <% if(locals.user) { %>
-      <p class="lead">Welcome <%= locals.user.firstName %>!</p>
+      <p class="lead">Welcome back <%= locals.user.firstName %>!</p>
       <% } %>
 
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="image\Number.jpg" class="card-img-top" alt="Image">
+            <div class="card-body">
+              <h5 class="card-title">Number of Patients per State</h5>
+              <p class="card-text">The dataset presents patient counts across various states, offering insights into the distribution of individuals seeking medical services or undergoing healthcare procedures in different geographical regions.</p>
+              <a href="#" class="btn btn-primary">Learn more</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card">
+            <img src="image\Status.jpg" class="card-img-top" alt="Image">
+            <div class="card-body">
+              <h5 class="card-title">Patients Status</h5>
+              <p class="card-text">The pie chart serves as a visual representation, allowing stakeholders to quickly comprehend the distribution of patient conditions, prioritize care, and allocate resources more effectively.</p>
+              <a href="#" class="btn btn-primary">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="image\Gender.png" class="card-img-top" alt="Image">
+            <div class="card-body">
+              <h5 class="card-title">Gender Based</h5>
+              <p class="card-text">The dataset provided represents the gender distribution among patients at GenoTech. This information is pivotal as it sheds light on the composition of patients based on gender within a specific healthcare setting..</p>
+              <a href="#" class="btn btn-primary">Lear more</a>
+            </div>
+          </div>
+        </div> 
     </div>
   </div>
 
@@ -23,4 +55,3 @@
 </body>
 
 </html>
-
