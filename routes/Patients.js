@@ -1,6 +1,6 @@
 var express = require('express');
-const Patients = require('../models/Patients');
 var router = express.Router();
+const Patients = require('../models/Patients');
 const authMiddleware = require('../middleware/auth');
 
 router.get('/Create', authMiddleware.ensureAuthenticated, function(req, res, next) {
