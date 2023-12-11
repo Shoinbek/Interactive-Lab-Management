@@ -1,6 +1,6 @@
 let passport = require('passport');
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 
 router.get('/login', function (req, res) {
     res.render('../views/accounts/login', { message: req.flash('loginMessage') });

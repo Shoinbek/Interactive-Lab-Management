@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 const authMiddleware = require('../middleware/auth');
-const User = require('../models/user');
+let User = require('../models/user');
 
 router.get('/', async function (req, res, next) {
     let users = await User.find();
