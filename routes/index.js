@@ -1,5 +1,5 @@
 const express = require('express');
-const Patients = require('../models/Patients.js');
+const Patients = require('../models/Patients');
 const router = express.Router();
 const authMiddleware = require('../middleware/auth');
 
