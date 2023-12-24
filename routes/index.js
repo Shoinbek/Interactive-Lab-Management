@@ -55,7 +55,7 @@ router.get('/update', authMiddleware.ensureAuthenticated, async function (req, r
 
   let patient = await Patients.findById(id);
 
-  res.render('Patients/Edit', { PatientsData: patient });
+  res.render('Patients/edit', { PatientsData: patient });
 });
 
 router.post('/update', authMiddleware.ensureAuthenticated, async function(req, res){
